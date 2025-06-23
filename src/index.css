@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Enhanced primary colors */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Vibrant secondary colors */
+    --secondary: 270 95% 75%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Enhanced accent colors */
+    --accent: 142 76% 73%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Enhanced gradient variables */
+    --gradient-primary: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+    --gradient-secondary: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+    --gradient-accent: linear-gradient(135deg, #f59e0b, #ef4444, #ec4899);
+    --gradient-success: linear-gradient(135deg, #10b981, #059669, #047857);
+    --gradient-warning: linear-gradient(135deg, #f59e0b, #d97706, #b45309);
+    --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
+    --gradient-construction: linear-gradient(135deg, #ff6b35, #f7931e, #1e88e5);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Enhanced primary in dark mode */
+    --primary: 217 91% 70%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    /* Enhanced secondary in dark mode */
+    --secondary: 270 95% 80%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Enhanced accent in dark mode */
+    --accent: 142 76% 80%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217 91% 70%;
+
+    /* Enhanced gradient variables for dark mode */
+    --gradient-primary: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+    --gradient-secondary: linear-gradient(135deg, #34d399, #60a5fa, #a78bfa);
+    --gradient-accent: linear-gradient(135deg, #fbbf24, #f87171, #f472b6);
+    --gradient-success: linear-gradient(135deg, #34d399, #10b981, #059669);
+    --gradient-warning: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+    --gradient-danger: linear-gradient(135deg, #f87171, #ef4444, #dc2626);
+    --gradient-construction: linear-gradient(135deg, #ff8a65, #ffb74d, #42a5f5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Fix scrolling issues */
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  /* Enhanced dark mode support */
+  .dark {
+    color-scheme: dark;
+  }
+
+  .light {
+    color-scheme: light;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Enhanced focus styles */
+  .focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Link styles */
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-primary;
+  }
+
+  /* Button hover effects */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-0 transition-all duration-300;
+  }
+
+  .btn-gradient-secondary {
+    @apply bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white border-0 transition-all duration-300;
+  }
+
+  .btn-gradient-accent {
+    @apply bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 transition-all duration-300;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-secondary {
+    @apply bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-accent {
+    @apply bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent;
+  }
+}
